@@ -74,7 +74,7 @@
             reparto: d.reparto,
             minutos:d.minutos,
             votos:  (d.votos) ? d.votos.split(" ")[0] : 0}})
-    //$: console.log($seriesF, renderedSeries)
+    
     function onMouseOver(div) {
         isVisible = true;
         divResaltado = div;
@@ -431,7 +431,7 @@
                         $selectedTags= {tags:[],audio:[],generos:[],pais:[]};                                                                        
                         $searchTerm = "";
                         $filteredMovies = $recomendadas;
-                        console.log("%crecomendadas","color:orange, font-size:16px", $recomendadas);
+                        //console.log("%crecomendadas","color:orange, font-size:16px", $recomendadas);
                         obtenerKeyWords($titulo, 20); 
                     })
                
