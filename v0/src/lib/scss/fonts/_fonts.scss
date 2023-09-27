@@ -1,0 +1,23 @@
+//@import "spiegel-fonts";
+
+// war bisher direkt eingebunden, wodurch mehrfacher import von font.scss nicht möglich war
+// body > div:first-of-type
+// grundlegende font-formatierung nun mit scss-placeholder-selector,
+// der mit "@extend %baseFont" an passender Stelle im Projekt eingebunden wird
+%baseFont {
+
+  //@include fontFamily("SpiegelSans4UI-Regular") ;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+  font-size: 100%;
+  line-height: 1.125;
+  font-feature-settings: 'pnum' on, 'lnum' on;
+
+  // keine schrift-skalierung bei orientation change
+  // https://www.saintsatplay.com/blog/2015-04-25-preventing-text-scaling-on-iphone-landscape-orientation-change
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: 100%;
+
+}

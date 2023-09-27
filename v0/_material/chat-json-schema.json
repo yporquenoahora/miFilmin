@@ -1,0 +1,165 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "chat": {
+      "description": "Chat-Asset",
+      "type": "object",
+      "properties": {
+        "meta": {
+          "description": "Allgemein",
+          "type": "object",
+          "properties": {
+            "align": {
+              "title": "Ausrichtung der Posts",
+              "type": "string",
+              "enum": [
+                "nach Teilnehmer",
+                "links"
+              ]
+            }
+          },
+          "required": [
+            "align"
+          ]
+        },
+        "participants": {
+          "title": "Chat-Teilnehmer",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "title": "Name",
+                "type": "string"
+              },
+              "key": {
+                "title": "Key",
+                "type": "string",
+                "description": "Verweis in Posts"
+              },
+              "img": {
+                "title": "Icon/Bild (optional)",
+                "type": "string"
+              },
+              "align": {
+                "title": "Ausrichtung",
+                "type": "string",
+                "enum": [
+                  "left",
+                  "right"
+                ]
+              },
+              "colors": {
+                "title": "Farben",
+                "description": "Farben",
+                "type": "object",
+                "properties": {
+                  "lightmode": {
+                    "type": "object",
+                    "description": "Light Mode",
+                    "properties": {
+                      "background": {
+                        "type": "string"
+                      },
+                      "font": {
+                        "type": "string"
+                      }
+                    },
+                    "required": ["background","font"]
+                  },
+                  "darkmode": {
+                    "description": "Dark Mode - optional (wenn abweichend)",
+                    "type": "object",
+                    "properties": {
+                      "background": {
+                        "type": "string"
+                      },
+                      "font": {
+                        "type": "string"
+                      }
+                    },
+                    "required": ["background","font"]
+                  }
+                },
+                "required": ["lightmode", "darkmode"]
+              }
+            },
+            "required": [
+              "name",
+              "key",
+              "img",
+              "align",
+              "colors"
+            ]
+          }
+        },
+        "sections": {
+          "title": "Chat-Abschnitte",
+          "type": "array",
+          "items": {
+            "title": "Abschnitt",
+            "type": "object",
+            "properties": {
+              "key": {
+                "title": "Key",
+                "type": "string",
+                "description": "Dient als URL-Parameter zur Anzeige dieses Abschnitts"
+              },
+              "caption": {
+                "title": "Caption",
+                "type": "string",
+                "description": "Optional; erscheint unter einem Chat-Abschnitt"
+              },
+              "posts": {
+                "title": "Posts",
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "p": {
+                      "title": "Teilnehmer (key)",
+                      "type": "string"
+                    },
+                    "post": {
+                      "title": "Post",
+                      "type": "string",
+                      "description": "Text bold => [b]...[/b], Image => [https://....(Image-Source)]"
+                    },
+                    "time": {
+                      "title": "Uhrzeit (optional)",
+                      "type": "string"
+                    },
+                    "date": {
+                      "title": "Datum (optional)",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "p",
+                    "post",
+                    "time",
+                    "date"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "key",
+              "caption",
+              "posts"
+            ]
+          }
+        }
+      },
+      "required": [
+        "meta",
+        "participants",
+        "sections"
+      ]
+    }
+  },
+  "required": [
+    "chat"
+  ]
+}

@@ -1,0 +1,22 @@
+:global {
+  html {
+    color-scheme: light dark;
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  html, body {
+    background-color: var(--int-background-color-default);
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    cursor: default;
+    width: 100%;
+    height: 100%;
+  }
+}

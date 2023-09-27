@@ -1,0 +1,64 @@
+//$fontsPath: "https://cdn.prod.www.spiegel.de/public/shared/fonts/";
+
+$spFonts: (
+        "SpiegelSans4UI-Bold":              ("weight": 700, "style": normal),
+        "SpiegelSans4UI-Regular":           ("weight": 400, "style": normal),
+        "SpiegelSerifDisplayUI-BoldItalic": ("weight": 700, "style": italic),
+        "SpiegelSerifTextUI-Bold":          ("weight": 700, "style": normal),
+        "SpiegelSerifTextUI-BoldItalic":    ("weight": 700, "style": italic),
+        "SpiegelSerifTextUI-Italic":        ("weight": 400, "style": italic),
+        "SpiegelSerifTextUI-Regular":       ("weight": 400, "style": normal),
+        "SpiegelSlab4UICd-ExtraBold":       ("weight": 800, "style": normal)
+);
+
+
+@mixin fontFamily($fontName: "SpiegelSerifTextUI-Regular"){
+
+  @if(map_has_key($spFonts, $fontName)){
+
+    $fontFamily: str_slice($fontName, 0, str_index($fontName, "-") - 1);
+    $fontGroup: system-ui,BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    @if(str_index($fontName, "Serif") != null){
+      $fontGroup: Constantia,"Lucida Bright",Lucidabright,"Lucida Serif",Lucida,"DejaVu Serif","Bitstream Vera Serif","Liberation Serif",Georgia,serif;
+    }
+
+    font-family: $fontFamily,$fontGroup;
+    $fontAttrs: map_get($spFonts, $fontName);
+    font-style: map_get($fontAttrs, "style");
+    font-weight: map_get($fontAttrs, "weight");
+
+  }
+  @else {
+    @error "#{$fontName} gibt es nicht";
+  }
+
+}
+
+
+@mixin spFontsUI($fontName: "SpiegelSans4UI-Regular"){
+
+  //@debug "#{$fontName} ist gefragt";
+
+  @if(map_has_key($spFonts, $fontName)){
+
+    $fontAttrs: map_get($spFonts, $fontName);
+    $fontWeight: map_get($fontAttrs, "weight");
+    $fontFamily: str_slice($fontName, 0, str_index($fontName, "-") - 1);
+    $fontStyle: map_get($fontAttrs, "style");
+
+    @font-face {
+      font-family: $fontFamily;
+      font-style: $fontStyle;
+      font-weight: $fontWeight;
+      font-display: swap;
+      src: url($fontsPath + $fontName + ".woff2") format("woff2"),
+      url($fontsPath + $fontName + ".woff") format("woff")
+    }
+
+  }
+  @else {
+    @error "#{$fontName} existiert nicht";
+  }
+}
+
+

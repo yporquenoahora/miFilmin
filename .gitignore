@@ -1,0 +1,12 @@
+/v*/dist/**
+/v*/node_modules/**
+
+.DS_Store
+
+.idea/shelf/
+.idea/git_toolbox_prj.xml
+.idea/markdown.xml
+.idea/task.xml
+.idea/watcherTasks.xml
+.idea/vcs.xml
+.idea/workspace.xml

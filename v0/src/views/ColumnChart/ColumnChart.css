@@ -1,0 +1,104 @@
+.column-chart {
+  margin-top: 0;
+  color: black;
+}
+@media (prefers-color-scheme: dark) {
+  .column-chart {
+    color: white;
+  }
+}
+
+.lastResult {
+  margin-bottom: 4px;
+  margin-left: 3px;
+  font-weight: 700;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: space-evenly;
+  position: relative;
+  align-items: flex-end;
+  border-bottom: 1px solid black;
+  width: 100%;
+}
+
+.serieName {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: 7px;
+  align-items: flex-end;
+}
+
+.diff {
+  color: #9f9d9c;
+  width: 35px;
+  margin-left: 15px;
+}
+
+.last {
+  width: 2.25rem;
+}
+
+.election {
+  width: 0.75rem;
+}
+
+.legend {
+  display: inline-block;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+.legend svg {
+  height: 34px;
+  width: auto;
+  border: 0;
+}
+.legend svg .st0 {
+  fill: #9F9D9C;
+  stroke: none;
+}
+.legend svg .st1 {
+  fill: #E2E2E1;
+}
+.legend svg .st2 {
+  font-family: "SpiegelSans4UI";
+  fill: black;
+}
+@media (prefers-color-scheme: dark) {
+  .legend svg .st2 {
+    fill: white;
+  }
+}
+.legend svg .st3 {
+  font-size: 16px;
+  fill: black;
+}
+@media (prefers-color-scheme: dark) {
+  .legend svg .st3 {
+    fill: white;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .serieName {
+    margin-left: 0;
+  }
+
+  .last {
+    width: 1.6rem;
+  }
+
+  .election {
+    width: 0.45rem;
+  }
+
+  .diff {
+    color: #9f9d9c;
+    width: 35px;
+    margin-left: 5px;
+  }
+}
+
+/*# sourceMappingURL=ColumnChart.css.map */

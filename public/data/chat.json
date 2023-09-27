@@ -1,0 +1,164 @@
+{
+  "id":"16e9e820-adb7-48ad-b5ce-0771c2a9f41d",
+  "json_output":{
+    "chat":{
+      "meta":{
+        "align":"nach Teilnehmer"
+      },
+      "participants":[
+        {
+          "align":"left",
+          "colors":{
+            "darkmode":{
+              "background":null,
+              "font":null
+            },
+            "lightmode":{
+              "background":"#eeeacd",
+              "font":"#000"
+            }
+          },
+          "img":null,
+          "key":"x",
+          "name":"Xenia"
+        },
+        {
+          "align":"right",
+          "colors":{
+            "darkmode":{
+              "background":null,
+              "font":null
+            },
+            "lightmode":{
+              "background":"#93ad90",
+              "font":"#000"
+            }
+          },
+          "img":null,
+          "key":"m",
+          "name":"Maxim"
+        }
+      ],
+      "sections":[
+        {
+          "caption":"Maxim und »Xenia« schrieben sich über 1000 Nachrichten. Um Geld und Anlagen ging es nur in einem Bruchteil davon",
+          "key":"t1",
+          "posts":[
+            {
+              "date":null,
+              "p":"m",
+              "post":"Und wie ist dein Tag so?",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"x",
+              "post":"Bin schon bei der Arbeit und schaue die Nachrichten. Alle Rohstoffe sind im Preis gestiegen... Öl, Gold, Silber und Platin...",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"x",
+              "post":"Ich habe ein Geschäft mit Öl für $8.000 netto abgeschlossen",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"x",
+              "post":"Schöner Tag, meiner Meinung nach :)",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"m",
+              "post":"Ja, das ist gut. Gut gemacht.",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"x",
+              "post":"Sicher ist es gut. Warum bist du noch nicht dazu gekommen?",
+              "time":null
+            }
+          ]
+        },
+        {
+          "caption":"Sonderlich heiß ging es im Chat zwischen Maxim und »Xenia« nicht her: Auch dieser Dialog ist eher scherzhaft",
+          "key":"t2",
+          "posts":[
+            {
+              "date":null,
+              "p":"m",
+              "post":"Du bist also ein Profi 😎. Ich muss von dir lernen.",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"m",
+              "post":"Ist die Lufthansa-Aktie jetzt kaufenswert? ✈️",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"x",
+              "post":"Ich verstehe doch auch nichts davon, haha",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"x",
+              "post":"Ich setze nur um, was mir der Berater sagt. Er kalkuliert und analysiert.",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"x",
+              "post":"Dem einen wurde Intelligenz gegeben, dem anderen Schönheit. Und diese andere bin ich.",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"x",
+              "post":"Also heirate mich ahahahah",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"m",
+              "post":"Bin schon unterwegs 🏃",
+              "time":null
+            }
+          ]
+        },
+        {
+          "caption":"Auch Betrüger mögen freie Tage: Maxims Frage von Samstag wurde erst am Sonntag von »Xenia« beantwortet",
+          "key":"t3",
+          "posts":[
+            {
+              "date":null,
+              "p":"m",
+              "post":"Was machst du heute?",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"x",
+              "post":"Zu den Plänen am Wochenende: ich bin in die Berge gefahren, also verliere mich nicht 😘 kann kaum das Netz finden, um dir zu antworten 😂",
+              "time":null
+            },
+            {
+              "date":null,
+              "p":"x",
+              "post":"Wünsche dir ein schönes Wochenende✨",
+              "time":null
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "last_modified":1658958435,
+  "publish_date":1658312640,
+  "title":"Chat-Asset Tinder-Trading-Scam (24/2022)",
+  "updated_at":1658958435
+}

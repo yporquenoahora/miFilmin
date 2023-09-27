@@ -1,0 +1,19 @@
+@import "./../lib/scss/fonts/fonts";
+
+// Webfonts hier einbinden (a);
+// da später, dynamisch ergänzte Inhalte kein Laden der Webfonts auslösen, ggf. verstecktes Element
+// entsprechend formatieren (b)
+
+
+// (a) -----
+/* @include spFontsUI("SpiegelSans4UI-Regular");
+@include spFontsUI("SpiegelSans4UI-Bold");
+@include spFontsUI("SpiegelSlab4UICd-ExtraBold"); */
+//@include spFontsUI("SpiegelSerifTextUI-Regular");
+
+// (b) -----
+//body > div:first-child:after {
+//content: "";
+//font-family: "SpiegelSlab4UICd", sans-serif;
+//font-weight: 700;
+//}

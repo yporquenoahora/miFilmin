@@ -1,0 +1,37 @@
+@import "./../config/spColors";
+
+// css-klasse "link": um nodes, die kein <a> sind, aber
+// so aussehen sollen, zu formatieren
+// Verwendung: @extend %anchorSP
+%anchorSP {
+  --int-lib-a-sp-color: #{$primary-base};
+  --int-lib-a-sp-border-color: #{$primary-lighter};
+  color: var(--int-lib-a-sp-color);
+  border-color: var(--int-lib-a-sp-border-color);
+  &:hover {
+    border-color: var(--int-lib-a-sp-color);
+  }
+}
+
+%anchor {
+
+  --int-lib-a-color: #{$basic-black};
+  --int-lib-a-border-color: #{$shade-base};
+
+  @media (prefers-color-scheme: dark) {
+    --int-lib-a-color: #{$basic-white-dark};
+    --int-lib-a-border-color: #{$basic-white-dark};
+  }
+
+  color: var(--int-lib-a-color);
+  font-weight: 400;
+  display: inline;
+  border-bottom: 1px solid var(--int-lib-a-border-color);
+  text-decoration: none;
+
+  &:hover {
+    border-color: var(--int-lib-a-color);
+  }
+
+}
+

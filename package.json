@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "d3-time-format": "^4.1.0",
+    "layercake": "^7.4.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "server": {
+    "baseDir": "./",
+    "index": "index.html"
+  },
+    "mime": {
+      "types": {
+        "js": "application/javascript"
+      }
+    }
+  }
+  

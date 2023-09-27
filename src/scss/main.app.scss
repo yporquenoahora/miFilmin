@@ -1,0 +1,12 @@
+// formatiert das HTML-Dokument => nur für Iframe-Anwendungen! (global)
+@import "./../lib/scss/basics/document.v0";
+
+// verwendete SP-Schriften einbetten
+@import "webfonts";
+
+// vars, placeholder, font-family-mixin (@include spFontsUI())
+@import "config";
+
+@import "css-vars";
+
+// Ggf. weitere projekt-spezifische Anweisungen

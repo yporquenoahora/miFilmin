@@ -1,0 +1,39 @@
+@import "./scss-vars";
+@import "./colors";
+
+:global div[data-type='graphics-svelte-app'] {
+
+  --int-font-color-default: #{$basic-black};
+  --int-font-color-credit: #{$basic-black};
+  --int-font-color-shade-base: #{$shade-base};
+  --int-font-color-shade-darker: #{$shade-darker};
+  --int-font-color-shade-dark: #{$shade-dark};
+  --int-font-color-shade-light: #{$shade-light};
+  --int-font-color-shade-lightest: #{$shade-lightest};
+  --int-background-color-default: #{$basic-white};
+  --int-border-color-default: #{$shade-base};
+  --int-box-color-default: #{#d5f2e8};
+  --filmin-color-base: #d5f2e8;
+  --filmin-color-base-light: #a8f5da;
+  --int-filmin-pink: rgb(240, 32, 206);
+  --int-filmin-light-pink: #{$light-pink};
+  --int-info: #50839d;
+  --int-basic-white-dark: #{$basic-white-dark};
+
+  @media (prefers-color-scheme: dark) {
+    --int-font-color-default: #{$basic-black};
+    --int-font-color-credit: #{$basic-white-dark};
+    --int-font-color-shade-darker: #{$shade-lighter};
+    --int-font-color-shade-dark: #{$shade-light};
+    --int-font-color-shade-light: #{$shade-dark};
+    --int-font-color-shade-lightest: #{$shade-darkest};
+    --int-background-color-default: #{$dark-green};
+    --int-border-color-default: #{$shade-light};
+    --int-box-color-default: #6d9f8e;
+    --filmin-color-base: #{$light-green};
+    --int-filmin-pink: rgb(159, 114, 152);
+    --int-filmin-light-pink: #{$shade-pink};
+    --filmin-color-base-light: #a8f5da;
+    --int-info: #364142;
+  }
+}
