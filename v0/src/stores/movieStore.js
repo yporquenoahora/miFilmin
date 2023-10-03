@@ -3,7 +3,7 @@ import { writable } from 'svelte/store';
 import {/*dataL,*/ dataF, seriesF} from "./data"
 
 
-export const selectedTags = writable({tags:[],audio:[],generos:[],pais:[]});
+export const selectedTags = writable({tags:[],audio:[],generos:[],pais:[],keywords:[]});
 export const selectedSortOption = writable([]);
 export const recomendadas = writable([]);
 export const recomendadasTags = writable([]);
@@ -23,10 +23,5 @@ export const filterGenresAnd = writable(false);
 export const filterTagsAnd = writable(false);
 export const filterAudioAnd = writable(false);
 export const filterPaisAnd = writable(false);
-
-
-
-
-
 
 export const titulo = writable();

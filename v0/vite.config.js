@@ -13,6 +13,9 @@ import autoprefixer from 'autoprefixer';
 // import { viteSingleFile } from './vite-plugin-sp-singlefile-v0.9.0';
 import { viteSingleFile } from './vite-plugin-sp-singlefile-v0.11.1';
 
+
+
+
 // https://github.com/vbenjs/vite-plugin-html
 
 
@@ -40,7 +43,9 @@ const config = defineConfig({
     plugins: [
         svelte({
             emitCss: true,
-            preprocess: sveltePreprocess(),
+            preprocess: sveltePreprocess({
+                scss: {},
+              }),
             compilerOptions: {
                 dev: !production
             },

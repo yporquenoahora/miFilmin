@@ -1,7 +1,7 @@
 <script>    
 	import { filteredMovies } from '@stores/movieStore.js';
 	import { onMount, onDestroy } from 'svelte';
-	import { generos, selectedTags } from '../../stores/movieStore.js';
+	import { generos, selectedTags, recomendadas, keywords } from '../../stores/movieStore.js';
     
     
 
@@ -81,12 +81,14 @@
   function togglePanel(index) {
     activeIndex = (activeIndex === index) ? -1 : index;
     //$selectedTags["generos"] = [];
-    console.log(key, $selectedTags)
-    if ($selectedTags[key].includes(index)) {
-          $selectedTags[key] = $selectedTags[key].filter(opt => opt !== index);
-        } else {
-          $selectedTags[key] = [...$selectedTags[key], index];
-        } 
+    console.log($recomendadas)
+   
+      if ($selectedTags[key].includes(index)) {
+            $selectedTags[key] = $selectedTags[key].filter(opt => opt !== index);
+          } else {
+            $selectedTags[key] = [...$selectedTags[key], index];
+          } 
+      
     
   }
 
@@ -95,7 +97,10 @@
     itemsToShow = (sortedGenres.length >= itemsToShow + 10) ? itemsToShow + 10 : sortedGenres.length; 
   }
     
-   
+  function showLess() {
+        // Incrementa la cantidad de elementos para mostrar    
+        itemsToShow = (Object.entries(sortedGenres).length >= 10 ) ? itemsToShow - 10 : Object.entries(sortedDataTags).length - 1; 
+    }
 
   $: reset = ()=>{
     $selectedTags[key] = [];
@@ -106,13 +111,13 @@
   <!-- <button class="reset" on:click={()=> reset()}>RESET</button> -->
 
   <div class="chart" bind:this={targetElement}>
-    {#each sortedGenres.slice(0, itemsToShow) as [key, value]}    
+    {#each sortedGenres.slice(0, itemsToShow) as [keyItem, value]}    
     <div class="bar-container" 
       height=" {height / data.length - 10}px"
-      class:active={$selectedTags["generos"].includes(key) || $selectedTags["audio"].includes(key)|| $selectedTags["tags"].includes(key)}
-      on:click={() => togglePanel(key)}
-      on:keydown={togglePanel(key)}>
-        <div class="label">{key}</div>
+      class:active={$selectedTags[key].includes(keyItem)}
+      on:click={() => togglePanel(keyItem)}
+      on:keydown={togglePanel(keyItem)}>
+        <div class="label">{keyItem}</div>
         <div
           class="bar"
           
@@ -124,6 +129,10 @@
     </div>
     {#if itemsToShow < sortedGenres.length}
       <button on:click={showMore}>Mostrar más ...</button>
+    {/if}
+
+    {#if itemsToShow > 9}
+      <button on:click={showLess}>Mostrar menos ...</button>
     {/if}
   <style>
      
@@ -138,7 +147,7 @@
   .valor{
     color: var(--int-font-color-default)
   }
-  .reset, button{
+  button{
     border: 2px solid rgb(104, 133, 110) ;
     border-radius: 15px;
     padding: .5rem;
@@ -160,22 +169,7 @@
       background-color: rgb(255, 127, 221);
     }
 
-  .bar-subcontainer {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-    margin-left: 1.625rem;
-    padding: 8px;
-    border-radius: 1rem;
-    background-color: pink;
-    
-  }
-  .bar-subcontainer.active{
-      background-color: rgb(255, 127, 221);
-    }
-  .fade-transition {
-    transition: opacity 0.5s ease;
-  }
+ 
 
   .bar {
     background-color: #d5f2e8;
@@ -189,7 +183,5 @@
     color: var(--int-font-color-default)
     
   }
-  .bar-subcontainer .label{
-    width: 250px;
-  }
+ 
   </style>

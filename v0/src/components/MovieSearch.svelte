@@ -9,9 +9,7 @@
   </div>
   <style>
     /* Estilos CSS (opcional) */
-    h1 {
-      text-align: center;
-    }
+   
   
     input {
       width: 50%;

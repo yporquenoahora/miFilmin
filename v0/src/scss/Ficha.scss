@@ -1,0 +1,157 @@
+h2 a{
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+.keywords, .tags{
+    display: flex;
+    flex-wrap: wrap;
+}
+.keywords span, .tag{
+    background-color: var(--int-filmin-pink);
+    padding: .5rem;
+    border-radius: 15px;
+    margin: .5rem;
+    color: var(--int-basic-white-dark);
+    border: 1px solid var(--int-filmin-pink);
+}
+
+ .recomendador{
+    background-color: var(--filmin-color-base) ;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 60%;
+    padding: 1rem;
+    margin: 5px ;
+}
+.catalogo{
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 11px;
+    overflow: auto;
+    justify-content: space-between;
+   
+}
+
+.contenedor{
+        flex-basis: calc(33.33% - 20px); /* Restamos 20px para dejar espacio entre los divs */
+        border: 1px solid rgb(246, 165, 231);
+        border-radius: 5px;
+        margin: 5px;
+        
+    }
+
+.catalogo div p, .catalogo div h2{
+        margin: 5px;
+    }
+    .contenedor {
+        position: relative;
+        cursor:pointer;
+        background-color: var(--filmin-color-base);
+        color: rgb(61, 57, 57);
+        font-weight:300;
+    }
+    .contenedor a{
+        color: var(--int-info);
+        text-decoration: none
+    }
+    .contenedor > div{
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: -.625rem;
+    }
+    .info {          
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--int-info);  
+        color: white;          
+        font-weight: bold;
+        width: 200px;
+        font-size: .75rem;
+        z-index: 9999;
+        transform: translateY(-10px); /* Move the element 10px up initially */
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+    .info.visible {            
+        opacity: 1;
+        transform: translateX(30px); /* Move the element back to its original position */
+}
+
+.pic{
+border-radius: 5px;
+
+width: auto;
+height: 80px;
+margin-left: .5rem;
+border: 2px solid white;
+}
+.keywords, .tags{
+    display: flex;
+    flex-wrap: wrap;
+}
+.keywords span, .tag{
+    background-color: var(--int-filmin-pink);
+    padding: .5rem;
+    border-radius: 15px;
+    margin: .5rem;
+    color: var(--int-basic-white-dark);
+    border: 1px solid var(--int-filmin-pink);
+}
+.keywords .key_catalogo{
+    background-color: var(--int-filmin-pink);
+    font-size: 11px;
+    margin: .25rem;
+    font-weight: bold;
+}
+.tag{
+    background-color: var(--int-info);
+    font-size: 11px;
+    margin: 2px;
+}
+
+div, .filters {
+  
+  padding: 5px;
+  
+  border-radius: 0px;
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 10px auto;
+}
+.filters{
+    margin-top: 0;
+}
+@media screen and (max-width: 768px) {
+.catalogo{
+    flex-direction: row;
+}
+    .contenedor{
+        flex-basis: calc(100% - 20px); /* Restamos 20px para dejar espacio entre los divs */
+        border: 1px solid var(--int-filmin-pink);/* rgb(246, 165, 231);*/
+        border-radius: 5px;
+        margin: 3px;
+        
+    }
+    .contenedor>div h2{
+        font-size: .75rem;
+        width: 100%;
+        text-align: left;
+    }
+
+    .contenedor>div h2 a{
+        font-size: .75rem;
+        margin: 5px;
+        
+        
+                }
+    .column{
+        flex:1;
+        font-size: 12px;
+        text-align: left;
+    }
+    .keywords{
+        font-size: 12px;
+    }
+}

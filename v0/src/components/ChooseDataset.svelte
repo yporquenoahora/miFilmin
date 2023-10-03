@@ -1,39 +1,28 @@
 <script>
-	import ChooseDataset from './ChooseDataset.svelte';
-	
-    import { movies, selectedSortOption, categoria} from "../stores/movieStore"
-    import {dataF} from "@stores/data.js"
-    export let label = '';
+	  import { recomendadas } from './../stores/movieStore.js';
+    import { categoria, selectedTags} from "../stores/movieStore"    
+    export const label = '';
     export let isChecked = false;
-    export let disabled = false;
-    //export let selectedOption;
-   
-
+    export const disabled = false;
+    
     const toggleCheckbox = (e) => {      
       
        isChecked = !isChecked;
-       console.log(e.target.value)
+       $selectedTags = {tags:[],audio:[],generos:[],pais:[], keywords:[]}
+       $recomendadas = [];
+       
         $categoria[e.target.value] = true;
         if(e.target.value=="series") $categoria["peliculas"] = false;
         else $categoria["series"] = false
         
-        console.log("categoria", $categoria)
+        
     }
    
-    $:console.log("categoria", $categoria)
+    
    
   </script>
   
- <!--  <label>
-    <input class="checkbox " 
-    type="radio" 
-    bind:checked={$categoria[label]} 
-    disabled={disabled} 
-    on:click={toggleCheckbox}
-    
-    />
-    {label}
-  </label> -->
+
 <div class="chooseDataset">
   <div class="labels">
   <label class="custom-radio">
@@ -57,16 +46,8 @@
       align-items: center;
       font-size: 1.25rem;
     }
-    .checkbox {
-    display: inline-block;
-    padding: 10px;
-    border: 1px solid #ccc;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  .checkbox {
-    background-color: lightgreen;
-  }
+   
+ 
   .chooseDataset{
     display: flex;
     margin: 1rem;

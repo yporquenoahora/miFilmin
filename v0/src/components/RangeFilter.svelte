@@ -4,7 +4,7 @@
     import {dataF} from "@stores/data.js"
     export let key, min, max;
    //  $:console.log($dataF, $dataF.map(d=>d.votos || 0 ))
-   $: console.log(maxVotos) 
+   
    //$minScore.votos = Math.min(...$filteredMovies.map(d=>d.votos));
    $:maxVotos = Math.max(...$filteredMovies.map(d=>(d.votos) ? parseInt(d.votos.split(" ")[0]) : 0 )) || 12000;
    

@@ -84,9 +84,4 @@
     text-align: center; /* Centra el contenido dentro del contenedor */
     border: 1px solid lightgray;
   }
-
-  article{
-    margin: 1rem;
-  }
-
 </style>
