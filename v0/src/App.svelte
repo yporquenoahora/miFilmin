@@ -73,7 +73,7 @@
   div[data-type="graphics-svelte-app"] {
     @extend %appDimensions;
     @extend %baseColors;
-    @extend %baseFont;
+    
 
     font-size: 1rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;

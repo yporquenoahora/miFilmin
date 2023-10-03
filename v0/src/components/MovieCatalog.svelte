@@ -168,9 +168,8 @@
         }; 
      
     $: results =  $filteredMovies.slice(0, 20);
-    
-    $: $filteredMovies =  ($categoria.peliculas) ? 
-        renderedMovies.filter((movie) => {          
+    $: dataset = ($categoria.peliculas) ? renderedMovies : renderedSeries;
+    $: $filteredMovies =  dataset.filter((movie) => {          
             //console.log("FILTER MOVIES", $selectedTags)
             let genreMatch;
             let audioMatch;
@@ -181,11 +180,12 @@
             recomendadasMatch = $recomendadas.length === 0 || Object.keys($recomendadas).includes(movie["title"]);
             recomendadasTagsMatch = $recomendadasTags.length === 0 || $recomendadasTags.includes(movie["title"]);               
             
-            if($recomendadas[movie.title]){
-                keywordsMatch = $selectedTags["keywords"].length === 0 || $selectedTags["keywords"].some(d => $recomendadas[movie.title].includes(d));
-                console.log($selectedTags["keywords"].includes($recomendadas[movie.title]), $selectedTags["keywords"],movie.title,$recomendadas[movie.title])
-            }
-                     //console.log($recomendadas, movie.title, $recomendadas.includes(movie["title"]))
+             if($recomendadas[movie.title]){
+                keywordsMatch = $selectedTags["keywords"].length === 0 || $selectedTags["keywords"].every(d => $recomendadas[movie.title].includes(d));               
+            }else{
+                keywordsMatch = $selectedTags["keywords"].length === 0
+            } 
+                   
                 if(movie.generos){
                     if (movie["generos"].split(",").length>1) {
                         //genreMatch = $selectedTags["generos"].length === 0 || movie["generos"].split(",").every(item => $selectedTags["generos"].includes(item)) ; 
@@ -218,60 +218,16 @@
                 /*   if(searchTerm && searchTerm.split(" ").length>1){
                         ((movie.title!== null) ? movie.title.toString().toLowerCase().includes($searchTerm.toLowerCase()): null)
                     } */
-                    const filterScore = $minScore["score"] == "" || movie.score >= $minScore["score"];
-                    const filterScoreMax = $minScore["scoreMax"] == "" || movie.score <= $minScore["scoreMax"];
-                    const filterVotos = $minScore["votos"] == "" || movie.votos >= $minScore["votos"];
-                    const filterDuracion = $minScore["minutos"] == "" || movie.minutos <= $minScore["minutos"];
-                let rec = recomendadasMatch || recomendadasTagsMatch;
-           
-                //console.log(genreMatch , searchTermMatch , tagMatch , audioMatch , paisMatch , filterScore , filterVotos , filterScoreMax , filterDuracion , (recomendadasMatch || recomendadasTagsMatch))
-                return genreMatch && searchTermMatch && tagMatch && audioMatch && paisMatch && filterScore && filterVotos && filterScoreMax && filterDuracion && (recomendadasMatch) && keywordsMatch;// || recomendadasTagsMatch);                
-                
-        }) : 
-        renderedSeries.filter((movie) => {          
-            //console.log("%cFILTER Series","color:aquamarine",movie.title, movie.generos, movie.tags, movie.pais, movie.titulo, $recomendadas)
-            let genreMatch;
-            let audioMatch;
-            let recomendadasMatch;
-            let recomendadasTagsMatch;
-            
-            recomendadasMatch = $recomendadas.length === 0 || Object.keys($recomendadas).includes(movie["title"]);
-            recomendadasTagsMatch = $recomendadasTags.length === 0 || $recomendadasTags.includes(movie["title"]);
-
-            if(movie.generos){
-                if (movie["generos"].split(",").length>1) {
-                    //genreMatch = $selectedTags["generos"].length === 0 || movie["generos"].split(",").every(item => $selectedTags["generos"].includes(item)) ; 
-                    genreMatch = $selectedTags["generos"].length === 0 || $selectedTags["generos"].every(item => movie["generos"].includes(item));
-                // console.log(movie["generos"].split(",").every(item => $selectedTags["generos"].includes(item)), movie["generos"], $selectedTags["generos"]);
-                }else{
-                    if(movie.generos !== null)            
-                        genreMatch = $selectedTags["generos"].length === 0 ||  movie["generos"].includes($selectedTags["generos"]) ; 
-                    
-                }
-            }
-            if (movie["audio"]){
-                if (movie["audio"][0].split(",").length>1) {
-                    //genreMatch = $selectedTags["generos"].length === 0 || movie["generos"].split(",").every(item => $selectedTags["generos"].includes(item)) ; 
-                    audioMatch = $selectedTags["audio"].length === 0 || $selectedTags["audio"].every(item => movie["audio"].includes(item));
-                }else{
-                    if(movie.audio !== null)            
-                    audioMatch = $selectedTags["audio"].length === 0 ||  $selectedTags["audio"].every(item => movie["audio"].includes(item));//movie["audio"].includes($selectedTags["audio"]) ;                 
-                }
-            }
-                const tagMatch = $selectedTags["tags"].length === 0 || ((movie["tags"]!== null) ? movie["tags"].includes($selectedTags["tags"]) : null);
-                //const audioMatch = $selectedTags["audio"].length === 0 || ((movie["audio"]!== null) ? movie["audio"].includes($selectedTags["audio"]) : null) ;
-                const paisMatch = $selectedTags["pais"].length === 0 || ((movie["pais"]!== null) ? movie["pais"].includes($selectedTags["pais"]) : null) ;
-                const searchTermMatch = $searchTerm === '' ||  ((movie.title!== null) ? movie.title.toString().toLowerCase().includes($searchTerm.toLowerCase()): null) ;
-                //const filterScore = $minScore["score"] == "" || movie.score >= $minScore["score"];
-                //const filterScoreMax = $minScore["scoreMax"] == "" || movie.score <= $minScore["scoreMax"];
-                //const filterVotos = $minScore["votos"] == "" || movie.votos >= $minScore["votos"];
-                //const filterDuracion = $minScore["minutos"] == "" || movie.minutos <= $minScore["minutos"];
-            //console.log(genreMatch , searchTermMatch , tagMatch , paisMatch  , (recomendadasMatch))
-            
-            
-            return genreMatch && searchTermMatch && tagMatch && paisMatch  && (recomendadasMatch);
-        
-        })
+                    if($categoria.peliculas){
+                        const filterScore = $minScore["score"] == "" || movie.score >= $minScore["score"];
+                        const filterScoreMax = $minScore["scoreMax"] == "" || movie.score <= $minScore["scoreMax"];
+                        const filterVotos = $minScore["votos"] == "" || movie.votos >= $minScore["votos"];
+                        const filterDuracion = $minScore["minutos"] == "" || movie.minutos <= $minScore["minutos"];
+                        return genreMatch && searchTermMatch && tagMatch && audioMatch && paisMatch && filterScore && filterVotos && filterScoreMax && filterDuracion && (recomendadasMatch) && keywordsMatch;// || recomendadasTagsMatch);                
+                    }else{
+                        return genreMatch && searchTermMatch && tagMatch && audioMatch && paisMatch && (recomendadasMatch) && keywordsMatch;// || recomendadasTagsMatch);                
+                    }
+        });
  
     $: {
         $selectedSortOption;
@@ -459,7 +415,6 @@
     
     
     <Bubbles data={sortedData} key={"keywords"}/>
-    <!-- <Bubbles data={sortedDataTags} key={"tags"}/> -->
         {#if sortedDataTags}
         <div class="tags">
             {#each Object.entries(sortedDataTags).slice(0, itemsToShow) as [ix, value]}
@@ -490,11 +445,11 @@
    h3{
     margin: 1rem;
    }
-    .tags{
+    .keywords, .tags{
         display: flex;
         flex-wrap: wrap;
     }
-    .tag{
+    .keywords span, .tag{
         background-color: var(--int-filmin-pink);
         padding: .5rem;
         border-radius: 15px;
@@ -557,7 +512,18 @@
         overflow: auto;
         justify-content: space-between;
        
-    }   
+    }
+    .catalogo >div{
+            flex-basis: calc(33.33% - 20px); /* Restamos 20px para dejar espacio entre los divs */
+            border: 1px solid rgb(246, 165, 231);
+            border-radius: 5px;
+            margin: 5px;
+            
+        }
+   
+    .catalogo div p, .catalogo div h2{
+            margin: 5px;
+        }
   
   </style>
   

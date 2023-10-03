@@ -80,8 +80,8 @@
 
   function togglePanel(index) {
     activeIndex = (activeIndex === index) ? -1 : index;
-    //$selectedTags["generos"] = [];
-    console.log($recomendadas)
+    
+    
    
       if ($selectedTags[key].includes(index)) {
             $selectedTags[key] = $selectedTags[key].filter(opt => opt !== index);

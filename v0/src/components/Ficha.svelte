@@ -61,7 +61,7 @@
                         $keywords = data.keywords;
                         $recomendadas = data.data;
                         $recomendadasKeywords = data.keywords;
-                        console.log("%ckeywords",'color: green; font-size: 18px;',data, $recomendadas, $keywords)                        
+                        //console.log("%ckeywords",'color: green; font-size: 18px;',data, $recomendadas, $keywords)                        
                     })
                
             .catch(error => {

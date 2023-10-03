@@ -32,4 +32,4 @@ const unsubscribe = titulo.subscribe(titulo => {
     return urls;
   }
 
-export const ENV = "local";
+export const ENV = "build";
